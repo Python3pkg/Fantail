@@ -2,7 +2,7 @@
 Fantail
 """
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 
 import collections
 import inspect
@@ -76,7 +76,7 @@ class Fantail(dict):
         return str(dict(self))
 
     def __reduce__(self):
-        return type(self), (Fantail, ), None, None, iter(self.items())
+        return type(self), (Fantail, ), None, None, iter(list(self.items()))
 
     def copy(self):
         return self.__copy__()
@@ -87,7 +87,7 @@ class Fantail(dict):
     def __deepcopy__(self, memo):
         import copy
         return type(self)(Fantail,
-                          copy.deepcopy(self.items()))
+                          copy.deepcopy(list(self.items())))
 
     def backfill(self, d=None):
         """
@@ -95,7 +95,7 @@ class Fantail(dict):
         """
         if d is None:
             return
-        for k, v in d.items():
+        for k, v in list(d.items()):
             if not k in self:
                 self[k] = v
 
@@ -104,7 +104,7 @@ class Fantail(dict):
         if d is None:
             pass
         elif isinstance(d, dict):
-            for k, v in d.items():
+            for k, v in list(d.items()):
                 self[k] = v
         if len(kwargs):
             self.update(kwargs)

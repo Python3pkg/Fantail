@@ -2,7 +2,7 @@
 """
 Fantail
 """
-from __future__ import print_function
+
 
 from fantail.core import Fantail
 from fantail.stack import Fanstack

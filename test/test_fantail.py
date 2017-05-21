@@ -94,17 +94,17 @@ class FantailTest(unittest.TestCase):
         
     def test_branch_nodes(self):
         y = d()
-        self.assertTrue(y.has_key('b'))
-        self.assertTrue(y.has_key('c'))
-        self.assertFalse(y.has_key('d'))
+        self.assertTrue('b' in y)
+        self.assertTrue('c' in y)
+        self.assertFalse('d' in y)
 
         self.assertTrue('b' in y)
         self.assertTrue('c' in y)
         self.assertFalse('d' in y)
 
-        self.assertTrue(y.has_key('h.j.k'))
-        self.assertTrue(y.has_key('h.j'))
-        self.assertFalse(y.has_key('h.j.qq'))
+        self.assertTrue('h.j.k' in y)
+        self.assertTrue('h.j' in y)
+        self.assertFalse('h.j.qq' in y)
 
 
 class StackTest(unittest.TestCase):

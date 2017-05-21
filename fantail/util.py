@@ -4,7 +4,7 @@ Load a dict from disk & populate a YacoDict
 """
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
+
 
 import logging
 import os
@@ -25,7 +25,7 @@ class literal_unicode(str):
     pass
 
 def literal_str_representer(dumper, data):
-    return dumper.represent_scalar(u'tag:yaml.org,2002:str', data, style='|')
+    return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='|')
         
 #yaml.add_representer(literal_unicode, literal_unicode_representer)
 yaml.add_representer(literal_str, literal_str_representer)
